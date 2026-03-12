@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-API_URL = "https://YOUR-RENDER-URL"
+API_URL = "https://auto-agent-9th8.onrender.com"
 
 
 st.markdown("""
