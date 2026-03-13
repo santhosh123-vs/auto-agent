@@ -1,72 +1,65 @@
-# AutoAgent - Multi-Agent Orchestration Engine
+# AutoAgent
 
-A multi-agent orchestration system where AI agents chain together to complete complex tasks. Each agent has specialized skills and passes its output to the next agent.
+Multi-Agent Orchestration Engine - AI agents that work together.
+
+## Live Demo
+
+Try it now: https://auto-agent-zqitoxg3mphcafrpkq29rq.streamlit.app/
+
+## Key Metrics
+
+| Metric | Value |
+|--------|-------|
+| Agents | 4 (Researcher, Analyzer, Writer, Reviewer) |
+| Avg Task Completion | 3 steps per workflow |
+| Context Passing | 100% between agents |
+| Cost Tracking | Per-token monitoring |
+| Workflow History | Full execution trace |
+
+## Architecture
+
+User Query --> Researcher Agent --> Analyzer Agent --> Writer Agent --> Reviewer Agent --> Final Output
 
 ## How It Works
 
-User Task --> [Researcher] --> [Analyzer] --> [Writer] --> [Reviewer] --> Final Output
-
-## Agents
-
-| Agent | Role | What It Does |
-|-------|------|-------------|
-| Researcher | Information Gathering | Researches the topic thoroughly |
-| Analyzer | Data Analysis | Organizes and analyzes findings |
-| Writer | Content Creation | Creates polished professional content |
-| Reviewer | Quality Check | Reviews, scores, and improves output |
+1. Researcher: Gathers information on the topic
+2. Analyzer: Analyzes and structures the research
+3. Writer: Creates well-written content
+4. Reviewer: Reviews for quality and accuracy
+5. Each agent passes context to the next agent
 
 ## Features
 
-- Multi-agent orchestration with configurable pipelines
-- Execution tracing per agent (tokens, cost, latency)
-- Automatic context passing between agents
-- Error handling and partial completion support
-- Real-time monitoring dashboard
-- Workflow history and analytics
-- Download results as TXT or JSON
-- Select which agents to use per workflow
+- Multi-Agent Orchestration: 4 agents chain together automatically
+- Context Passing: Each agent builds on previous agent output
+- Execution Tracking: Full trace of each agent step
+- Cost Monitoring: Token usage and cost per request
+- Workflow History: View past executions
 
 ## Tech Stack
 
-| Component | Technology |
-|-----------|-----------|
-| Backend | FastAPI (Python) |
-| AI Provider | Groq (Llama 3.3 70B) |
-| Dashboard | Streamlit |
-| Orchestration | Custom Python engine |
-
-## Quick Start
-
-1. Clone: git clone https://github.com/santhosh123-vs/auto-agent.git
-2. Setup: python3 -m venv venv && source venv/bin/activate
-3. Install: pip install -r requirements.txt
-4. Add Groq key to .env file
-5. Start API: uvicorn main:app --reload --port 8001
-6. Start Dashboard: streamlit run dashboard.py
+| Technology | Purpose |
+|------------|---------|
+| Python | Backend |
+| FastAPI | API Framework |
+| Groq | LLM Provider (Llama 3.3 70B) |
+| Streamlit | Dashboard |
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/v1/workflow | Run multi-agent workflow |
-| GET | /api/v1/workflows | Get workflow history |
-| GET | /api/v1/summary | Usage summary |
-| GET | /api/v1/agents | List available agents |
-| POST | /api/v1/single-agent | Run single agent |
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| /orchestrate | POST | Run full agent pipeline |
+| /agents | GET | List all agents |
+| /history | GET | View workflow history |
 
-## Sample Workflow Result
+## Quick Start
 
-- 4 agents chained together
-- 6654 total tokens used
-- Total cost: -zsh.004633
-- Total time: 8.7 seconds
-- Final output: Professional polished content
+1. Clone: git clone https://github.com/santhosh123-vs/auto-agent
+2. Install: pip install -r requirements.txt
+3. Add .env with GROQ_API_KEY
+4. Run: python main.py
 
 ## Author
 
-Built by Kethavath Santhosh
-GitHub: https://github.com/santhosh123-vs
-
-## License
-
-MIT License
+Kethavath Santhosh - github.com/santhosh123-vs
